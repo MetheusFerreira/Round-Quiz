@@ -5,12 +5,11 @@ using UnityEngine;
 [RequireComponent (typeof (Rigidbody2D))]
 public class GravityBodyBehaviour : MonoBehaviour
 {
+    // faz com que um corpo seja capaz de ser puxado para um objeto categorizado como planeta.
     GravityEffectorBehaviour planet;
     void Awake()
     {
         planet = GameObject.FindGameObjectWithTag("Planeta").GetComponent<GravityEffectorBehaviour>();
-        //GetComponent<Rigidbody2D>().useGravity = false;
-        // GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     void FixedUpdate()

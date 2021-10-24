@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GravityEffectorBehaviour : MonoBehaviour
 {
-    public float gravity = -10f;
+    // simulação de Faux Gravity em um objeto.
+    public float gravity = -25f;
     public void Attract(Transform body) 
     {
         Vector3 targetDir = (body.position - transform.position).normalized;
