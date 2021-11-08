@@ -258,7 +258,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &1481193895
 SpriteRenderer:
@@ -320,7 +320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481193892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 1, z: 0}
+  m_LocalPosition: {x: -0.17, y: 1.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -365,8 +365,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01207a9c08167954aa8f7d95db395f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 10
-  rb: {fileID: 0}
+  jumpPower: 500
+  velocidade: 20
+  rb: {fileID: 1481193894}
 --- !u!1 &1909156169
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f925e40787fec4f9bcd8105b5386ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -100
+  gravity: -400
 --- !u!70 &1909156171
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -412,8 +413,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0013187791, y: 0.00011367273}
-  m_Size: {x: 0.5383371, y: 0.54302895}
+  m_Offset: {x: -0.010233879, y: -0.01431942}
+  m_Size: {x: 5.410863, y: 5.416624}
   m_Direction: 0
 --- !u!212 &1909156172
 SpriteRenderer:
@@ -456,7 +457,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8009429111653347394, guid: 24bdca03ee44c3446bfa0710351a9149, type: 3}
+  m_Sprite: {fileID: -8898996974202577994, guid: 3559d9d3f2d6c7849b4898f6ecae5ce2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -475,8 +476,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909156169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.025854, y: -8.1519, z: 0}
-  m_LocalScale: {x: 32.23779, y: 32.23779, z: 32.23779}
+  m_LocalPosition: {x: -0.20469, y: -7.0223, z: 0}
+  m_LocalScale: {x: 2.8882391, y: 2.8882391, z: 2.8882391}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
