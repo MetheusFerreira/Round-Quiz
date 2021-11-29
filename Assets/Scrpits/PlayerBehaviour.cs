@@ -9,7 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     Vector3 moveAmount;
     Vector3 smoothVelocidade;
     public float velocidade = 10f;
-    public Rigidbody2D rb;
+    public RigidBody2D rb;
     bool jump;
     
 
