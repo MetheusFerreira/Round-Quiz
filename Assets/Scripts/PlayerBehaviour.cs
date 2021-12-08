@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [SerializeField] float jumpPower = 500;
-    // [SerializeField] bool rastejow = false;
     Vector3 moveAmount;
     Vector3 smoothVelocidade;
     public float velocidade = 10f;
-    public RigidBody2D rb;
-    bool jump;
-    
+    public Rigidbody2D rb;
+    [SerializeField]
+    private GameObject quizzUI;
+
+    public bool tocando;
 
     void Awake()
     {
@@ -23,15 +23,10 @@ public class PlayerBehaviour : MonoBehaviour
         Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0).normalized;
         Vector3 targetMoveAmount = moveDir * velocidade;
         moveAmount = Vector3.SmoothDamp(moveAmount,targetMoveAmount, ref smoothVelocidade, .15f);
-
-        if(Input.GetButtonDown("Jump"))
+        if(tocando && Input.GetKeyDown(KeyCode.Space))
         {
-            jump = true;
-        } 
-        
-        else if (Input.GetButtonUp("Jump"))
-        {
-            jump = false;
+            quizzUI.SetActive(true);
+            Debug.Log("tocou");
         }
     }
 
@@ -40,16 +35,18 @@ public class PlayerBehaviour : MonoBehaviour
         // impede que o objeto continue indo na mesma direção no espaço da cena,
         // podendo ser possivel continuar na superfície do planeta mesmo utilizando uma tecla de horizontal.
         rb.MovePosition(rb.position + new Vector2(transform.TransformDirection(moveAmount).x,transform.TransformDirection(moveAmount).y) * Time.fixedDeltaTime);
-        Jump(jump);
     }
 
-    void Jump(bool jumpFlag)
+    public void OnTriggerEnter2D(Collider2D colisao)
     {
-        if(/*rastejow &&*/ jumpFlag)
+        if(colisao.CompareTag("NPC"))
         {
-            // rastejow = false;
-            jumpFlag = false;
-            rb.AddForce(new Vector2(0f, jumpPower));
-        } 
+            tocando = true;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D colisao)
+    {
+        tocando = false;
     }
 }
