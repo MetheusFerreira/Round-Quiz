@@ -2,47 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIController : MonoBehaviour
+public class ButtonController : MonoBehaviour
 {
     [SerializeField]
     private GameObject erradoUI;
     [SerializeField]
     private GameObject corretoUI;
-
+    [SerializeField]
+    private GameObject papai;
+    
     public void Setup()
     {
         erradoUI.SetActive(false);
         corretoUI.SetActive(false);
     }
 
-    // public void RespostaEscolhida(bool isCorrect)
-    // {
-    //     if(isCorrect)
-    //     {
-    //         QuestionRight();
-    //     }
-    //     else
-    //     {
-    //         QuestionWrong();
-    //     }
-    // }
     public void QuestionWrong()
     {
         erradoUI.SetActive(true);
+        corretoUI.SetActive(false);
+        GameObject.Find("Quiz").SetActive(false);
     }
-
-    // public void OnButtonPress1()
-    // {
-    //     erradoUI.SetActive(true);
-    // }
 
     public void QuestionRight()
     {
         corretoUI.SetActive(true);
+        erradoUI.SetActive(false);
+        GameObject.Find("Quiz").SetActive(false);
     }
 
-    // public void OnButtonPress2()
-    // {
-    //     corretoUI.SetActive(true);
-    // }
+    public void Fechar()
+    {
+        corretoUI.SetActive(false);
+        erradoUI.SetActive(false);
+        papai.SetActive(false);
+        Time.timeScale = 1f;
+    }
 }

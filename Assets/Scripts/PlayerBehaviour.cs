@@ -8,10 +8,10 @@ public class PlayerBehaviour : MonoBehaviour
     Vector3 smoothVelocidade;
     public float velocidade = 10f;
     public Rigidbody2D rb;
-    [SerializeField]
-    private GameObject quizzUI;
+    // [SerializeField]
+    // private GameObject quizzUI;
 
-    public bool tocando;
+    // public bool tocando;
 
     void Awake()
     {
@@ -23,11 +23,10 @@ public class PlayerBehaviour : MonoBehaviour
         Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0).normalized;
         Vector3 targetMoveAmount = moveDir * velocidade;
         moveAmount = Vector3.SmoothDamp(moveAmount,targetMoveAmount, ref smoothVelocidade, .15f);
-        if(tocando && Input.GetKeyDown(KeyCode.Space))
-        {
-            quizzUI.SetActive(true);
-            Debug.Log("tocou");
-        }
+        // if(tocando && Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     quizzUI.SetActive(true);
+        // }
     }
 
     void FixedUpdate()
@@ -37,16 +36,16 @@ public class PlayerBehaviour : MonoBehaviour
         rb.MovePosition(rb.position + new Vector2(transform.TransformDirection(moveAmount).x,transform.TransformDirection(moveAmount).y) * Time.fixedDeltaTime);
     }
 
-    public void OnTriggerEnter2D(Collider2D colisao)
-    {
-        if(colisao.CompareTag("NPC"))
-        {
-            tocando = true;
-        }
-    }
+    // public void OnTriggerEnter2D(Collider2D colisao)
+    // {
+    //     if(colisao.CompareTag("NPC"))
+    //     {
+    //         tocando = true;
+    //     }
+    // }
 
-    public void OnTriggerExit2D(Collider2D colisao)
-    {
-        tocando = false;
-    }
+    // public void OnTriggerExit2D(Collider2D colisao)
+    // {
+    //     tocando = false;
+    // }
 }
